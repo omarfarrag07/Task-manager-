@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sprints</h1>
+
+<div id="sprints">
+  <% @sprints.each do |sprint| %>
+    <%= render sprint %>
+    <p>
+      <%= link_to "Show this sprint", sprint %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sprint", new_sprint_path %>

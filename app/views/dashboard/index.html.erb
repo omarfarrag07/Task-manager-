@@ -1,0 +1,105 @@
+<!-- app/views/dashboard/index.html.erb -->
+
+<!-- Main container for the dashboard content -->
+<div class="container">
+  <div class="row mb-4">
+  <div class="col-md-12 mb-4">
+    <% if @project.present? %>
+      <%= link_to 'New Task', new_project_task_path(@project), class: 'new-task-button' %>
+      <%= form_with url: project_tasks_path(@project), method: :get, local: true do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search tasks...", class: "form-control" %>
+      <% end %>
+    <% else %>
+      <p>No project selected. Please select a project first.</p>
+    <% end %>
+  </div>
+</div>
+
+
+  <div class="row">
+    <!-- Column for 'To Do' tasks -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          To Do
+        </div>
+        <div class="card-body">
+          <!-- Iterate over tasks with status 'new' -->
+          <% @tasks.where(status: 'new').each do |task| %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <h5 class="card-title"><%= task.title %></h5>
+                <p class="card-text"><%= task.description %></p>
+                <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column for 'In Progress' tasks -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          In Progress
+        </div>
+        <div class="card-body">
+          <% @tasks.where(status: 'in_progress').each do |task| %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <h5 class="card-title"><%= task.title %></h5>
+                <p class="card-text"><%= task.description %></p>
+                <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column for 'Resolved' tasks -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          Resolved
+        </div>
+        <div class="card-body">
+          <% @tasks.where(status: 'resolved').each do |task| %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <h5 class="card-title"><%= task.title %></h5>
+                <p class="card-text"><%= task.description %></p>
+                <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column for 'Closed' tasks -->
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          Closed
+        </div>
+        <div class="card-body">
+          <% @tasks.where(status: 'closed').each do |task| %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <h5 class="card-title"><%= task.title %></h5>
+                <p class="card-text"><%= task.description %></p>
+                <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rails tags for CSRF protection and Content Security Policy -->
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>

@@ -1,0 +1,65 @@
+<%= form_with(model: [@project, @task]) do |form| %>
+  <% if @task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% @task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Hidden field for project_id -->
+  <div>
+    <%= form.hidden_field :project_id, value: @project.id %>
+  </div>
+
+  <!-- User selection -->
+  <div class="form-group">
+    <%= form.label :user_id, "Assign to" %>
+    <%= form.collection_select :user_id, User.all, :id, :email, { prompt: "Select a user" }, { class: "form-control" } %>
+  </div>
+
+  <!-- Category -->
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.text_field :category %>
+  </div>
+
+  <!-- Title -->
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <!-- Description -->
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <!-- Status -->
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, ['new', 'in_progress', 'resolved', 'closed'] %>
+  </div>
+
+  <!-- Attachment -->
+  <div>
+    <%= form.label :attachment, style: "display: block" %>
+     <%= form.file_field :attachment %>
+  </div>
+
+   <!-- Project Selection -->
+  <div class="form-group">
+    <%= form.label :project_id, "Select Project" %>
+    <%= form.collection_select :project_id, Project.all, :id, :name, { prompt: "Select a project" }, { class: "form-control" } %>
+  </div>
+
+  <!-- Submit button -->
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

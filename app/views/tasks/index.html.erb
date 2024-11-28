@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>To Do</h3>
+<div id="to-do-tasks" class="task-column">
+  <% if @to_do_tasks.present? %>
+    <% @to_do_tasks.each do |task| %>
+      <div class="task-card" data-task-id="<%= task.id %>">
+        <%= task.title %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No tasks available</p>
+  <% end %>
+</div>
+
+    </div>
+
+    <div class="col-md-4">
+      <h3>In Progress</h3>
+      <div id="in-progress-tasks" class="task-column">
+  <% if @in_progress_tasks.present? %>
+    <% @in_progress_tasks.each do |task| %>
+      <div class="task-card" data-task-id="<%= task.id %>">
+        <%= task.title %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No tasks in progress.</p>
+  <% end %>
+</div>
+
+    </div>
+
+    <div class="col-md-4">
+      <h3>Done</h3>
+      <div id="done-tasks" class="task-column">
+  <% if @done_tasks.present? %>
+    <% @done_tasks.each do |task| %>
+      <div class="task-card" data-task-id="<%= task.id %>">
+        <%= task.title %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No tasks completed yet.</p>
+  <% end %>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+<%= link_to "New task", new_project_task_path(@project) %>

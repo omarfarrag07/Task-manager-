@@ -1,0 +1,38 @@
+<div class="task-details">
+  <p style="color: green"><%= notice %></p>
+
+  <p class="task-category">
+    <strong>Category:</strong> <%= @task.category %>
+  </p>
+
+  <p class="task-title">
+    <strong>Title:</strong> <%= @task.title %>
+  </p>
+
+  <p class="task-description">
+    <strong>Description:</strong> <%= @task.description %>
+  </p>
+
+  <p class="task-assignee">
+    <strong>Assigned to:</strong> <%= @task.user.email if @task.user %>
+  </p>
+
+  <p class="task-status">
+    <strong>Status:</strong> <%= @task.status %>
+  </p>
+
+  <p class="task-attachment">
+    <strong>Attachment:</strong>
+    <% if @task.attachment? %>
+      <%= link_to @task.attachment.filename, @task.attachment.url %>
+    <% else %>
+      No attachment file available.
+    <% end %>
+  </p>
+
+  <div class="task-actions">
+    <%= link_to "Edit this task", edit_project_task_path(@task.project, @task), class: "btn btn-primary" %> |
+    <%= link_to "Back to dashboard", dashboard_path , class: "btn btn-secondary" %> |
+    <%= button_to "Destroy this task", project_task_path(@task.project, @task), method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>

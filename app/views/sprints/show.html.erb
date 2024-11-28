@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @sprint %>
+
+<div>
+  <%= link_to "Edit this sprint", edit_sprint_path(@sprint) %> |
+  <%= link_to "Back to sprints", sprints_path %>
+
+  <%= button_to "Destroy this sprint", @sprint, method: :delete %>
+</div>

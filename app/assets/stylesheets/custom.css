@@ -1,0 +1,138 @@
+/* General Body Style */
+body {
+  background-color: #f8f9fa; /* Light grey background for better contrast */
+  font-family: Arial, sans-serif; /* Improved font */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #007bff; /* Bootstrap primary color */
+  padding: 15px; /* Increased padding for a better look */
+}
+
+.navbar-brand {
+  color: #ffffff; /* White text color for the brand */
+  font-size: 24px; /* Larger font size for better visibility */
+  font-weight: bold; /* Bold font for emphasis */
+}
+
+.navbar-nav {
+  display: flex; /* Align navigation links in a row */
+  gap: 15px; /* Space between links */
+}
+
+.nav-link {
+  color: #ffffff; /* White text color for links */
+  text-decoration: none; /* Remove underline from links */
+  padding: 8px 12px; /* Padding around links for better clickability */
+  border-radius: 4px; /* Rounded corners for links */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighten link on hover */
+}
+
+/* Card Styles */
+.card {
+  border: 2px solid #0be4f3; /* Lighter border for cards */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 20px; /* Space between cards */
+}
+
+.card-header {
+  background-color: #0be4f3; /* Card header color */
+  color: #ffffff; /* White text for card header */
+  font-weight: bold; /* Bold font for emphasis */
+}
+
+/* Task Details */
+.task-details {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ffffff; /* White background for task details */
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Task Actions */
+.task-actions {
+  margin-top: 20px;
+  display: flex; /* Use flexbox to align items */
+  justify-content: flex-start; /* Align buttons to the right */
+  gap: 10px; /* Add space between buttons */
+}
+
+.task-actions .btn {
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* Button Colors */
+.btn-primary {
+  background-color: #3498db; /* Blue for primary buttons */
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #95a5a6; /* Grey for secondary buttons */
+  border: none;
+}
+
+.btn-danger {
+  background-color: #e74c3c; /* Red for danger buttons */
+  border: none;
+}
+
+/*new task button*/
+.new-task-button {
+  background-color: #28a745; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.25rem; /* Larger font */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.new-task-button:hover {
+  background-color: #218838; /* Darker green on hover */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+
+/* Destroy Button Icon */
+.destroy_icon {
+  background-color: #e74c3c; /* Red background for destroy button */
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Form Styles */
+form.confirm_destroy {
+  display: inline; /* Display inline to keep forms compact */
+}
+
+/* Alerts */
+.notice, .alert {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.notice {
+  background-color: #d4edda; /* Green background for notice */
+  color: #155724; /* Dark green text for notice */
+}
+
+.alert {
+  background-color: #f8d7da; /* Light red background for alert */
+  color: #721c24; /* Dark red text for alert */
+}
